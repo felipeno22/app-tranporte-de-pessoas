@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\siteController;
+use App\Http\Controllers\MotoristaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,4 +21,9 @@ use Illuminate\Support\Facades\Route;
 
 */
 
+Route::get('/motorista/create',[MotoristaController::class,'create']);
+Route::get('/motorista/read',[MotoristaController::class,'read']);
+Route::get('/motorista/readAll',[MotoristaController::class,'readAll']);
+Route::get('/motorista/update',[MotoristaController::class,'update']);
+Route::get('/motorista/delete',[MotoristaController::class,'delete']);
 Route::get('/',[siteController::class,'index']);
