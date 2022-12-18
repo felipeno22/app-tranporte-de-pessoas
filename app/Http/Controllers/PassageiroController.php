@@ -3,15 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Motorista;
+use App\Models\Passageiro;
 
-class MotoristaController extends Controller
+class PassageiroController extends Controller
 {
- 
     //
+       //
     public function create(Request $r){
 
-        $new_motorista=['name' => 'Willian José',
+        $new_passageiro=['name' => 'Willian José',
                         'cpf'=>'045.567.789-56',
                         'rg'=>'456.456.677',
                         'date_born'=>'02/02/1990',
@@ -25,48 +25,48 @@ class MotoristaController extends Controller
                         'state'=>'São Paulo',
                         'situation'=>'Ativo'];
 
-                        $motorista=new Motorista($new_motorista);
-                        $motorista->save();//salvando no banco
-                        dd($motorista);
+                        $passageiro=new Passageiro($new_passageiro);
+                        $passageiro->save();//salvando no banco
+                        dd($passageiro);
 
 
     }
 
     public function read(Request $r){
 
-        $motorista= new Motorista();
+        $passageiro= new Passageiro();
 
-       // $motoristas=$motorista->all();//lista todos
+       // $passageiros=$passageiro->all();//lista todos
 
-       // $motoristas=$motorista->find(1);//sempre pega pela chave primária
+       // $passageiros=$passageiro->find(1);//sempre pega pela chave primária
 
-         $motoristas=$motorista->where('id',1);//sempre pega pela chave primária
+         $passageiros=$passageiro->where('id',1);//sempre pega pela chave primária
 
-            dd($motoristas);
+            dd($passageiros);
     }
 
 
 
       public function readAll(Request $r){
 
-        $motoristas=Motorista::all();
+        $passageiros=Passageiro::all();
 
 
 
 
-        return $motoristas;
+        return $passageiros;
     }
 
 
      public function update(Request $r){
 
-      //  $motorista=Motorista::find(2);
+      //  $passageiro=Motorista::find(2);
 
-        //$motorista->name="Maria José";
+        //$passageiro->name="Maria José";
 
-        //$motorista->save();
+        //$passageiro->save();
         
-        $motorista=Motorista::where('id','=','2')->update([
+        $passageiro=Passageiro::where('id','=','2')->update([
 
                 'name' => 'Maria José',
                         'cpf'=>'021.890.111-23',
@@ -84,15 +84,15 @@ class MotoristaController extends Controller
         ]);
 
 
-        return $motorista;
+        return $passageiro;
     }
 
 
     public function delete(Request $r){
 
-        $mot= new Motorista();
+        $pass= new Passageiro();
 
-       $excluindo= $mot->find(6);
+       $excluindo= $pass->find(6);
        if($excluindo){
            return $excluindo->delete();
 
@@ -101,8 +101,6 @@ class MotoristaController extends Controller
        }
         
     }
-
-
 
 
 
